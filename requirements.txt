@@ -1,0 +1,5 @@
+# Core dependencies
+python-telegram-bot==20.7  # Includes telegram, telegram.ext, and telegram.error
+python-dotenv==1.0.0       # For .env file handling
+httpx==0.25.2             # HTTP client
+asyncio==3.4.3            # Async support

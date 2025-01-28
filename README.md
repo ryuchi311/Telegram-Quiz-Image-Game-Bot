@@ -47,7 +47,8 @@ A feature-rich Telegram bot for hosting interactive quiz games with images. Play
 1. Clone the repository:
 ```bash
 git clone https://github.com/ryuchi311/Telegram-Quiz-Image-Game-Bot.git
-cd PyGuessgame
+cd Telegram-Quiz-Image-Game-Bot
+
 ```
 
 2. Install dependencies:

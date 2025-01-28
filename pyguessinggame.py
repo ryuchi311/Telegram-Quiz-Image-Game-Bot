@@ -25,8 +25,8 @@ load_dotenv()
 BASE_DIR = 'PyGuessgame'
 PYDATA_DIR = os.path.join(BASE_DIR, 'Pydata')
 QUIZJOIN_PATH = os.path.join(PYDATA_DIR, 'guessjoin.txt')
-PUZZLE_PATH = os.path.join(PYDATA_DIR, '4images.json')
-IMAGES_DIR = os.path.join(PYDATA_DIR, '4images')
+PUZZLE_PATH = os.path.join(PYDATA_DIR, 'tokenimage.json')
+IMAGES_DIR = os.path.join(PYDATA_DIR, 'tokenimage')
 
 # Other existing constants remain the same
 AUTHORIZED_ADMINS = ["chicago311", "LesterRonquillo", "Aldrin1212"]
