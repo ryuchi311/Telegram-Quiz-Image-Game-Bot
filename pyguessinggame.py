@@ -22,11 +22,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Updated Constants
-BASE_DIR = 'PyGuessgame'
+BASE_DIR = os.getcwd()  # This will be /workspaces/Telegram-Quiz-Image-Game-Bot
 PYDATA_DIR = os.path.join(BASE_DIR, 'Pydata')
 QUIZJOIN_PATH = os.path.join(PYDATA_DIR, 'guessjoin.txt')
-PUZZLE_PATH = os.path.join(PYDATA_DIR, 'tokenimage.json')
-IMAGES_DIR = os.path.join(PYDATA_DIR, 'tokenimage')
+PUZZLE_PATH = os.path.join(PYDATA_DIR, '4images.json')
+IMAGES_DIR = os.path.join(PYDATA_DIR, '4images')
 
 # Other existing constants remain the same
 AUTHORIZED_ADMINS = ["chicago311", "LesterRonquillo", "Aldrin1212"]
@@ -34,7 +34,8 @@ POINTS_PER_CORRECT_ANSWER = 5
 HINT_PENALTY = 1
 MAX_HINTS = 4  # Maximum number of hints allowed per puzzle
 
-# Configure logging
+# Configure logging with directory creation
+os.makedirs(BASE_DIR, exist_ok=True)  # Ensure base directory exists
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
@@ -43,6 +44,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
 logger = logging.getLogger(__name__)
 
 # Disable noisy logs
@@ -599,18 +601,18 @@ class QuizBot:
             await update.message.reply_text(congrats_message)
 
             # Send celebratory sticker
-            try:
-                stickers = [
-                    "CAACAgIAAxkBAAIDHmXFdQ7wmm-sFu6JuqIux3sIcsVzAAJBAQACqCK2G3x_4IZbJSQEMAQ",
-                    "CAACAgIAAxkBAAIDH2XFdRXMJ_9bHwXpXNxvzyNLAAHUSQACQwEAAqgithtuHEr3ugABrN4wBA",
-                    "CAACAgIAAxkBAAIDIGXFdRmBnFbB6QxQSuvs9Zv2Y4LSAAJFAQACqCK2GzVR4fZ-giwWMAQ"
-                ]
-                await context.bot.send_sticker(
-                    chat_id=update.effective_chat.id,
-                    sticker=random.choice(stickers)
-                )
-            except Exception as e:
-                logger.error(f"Error sending sticker: {e}")
+        #    try:
+        #        stickers = [
+        #            "CAACAgIAAxkBAAIDHmXFdQ7wmm-sFu6JuqIux3sIcsVzAAJBAQACqCK2G3x_4IZbJSQEMAQ",
+        #            "CAACAgIAAxkBAAIDH2XFdRXMJ_9bHwXpXNxvzyNLAAHUSQACQwEAAqgithtuHEr3ugABrN4wBA",
+        #            "CAACAgIAAxkBAAIDIGXFdRmBnFbB6QxQSuvs9Zv2Y4LSAAJFAQACqCK2GzVR4fZ-giwWMAQ"
+        #        ]
+        #        await context.bot.send_sticker(
+        #            chat_id=update.effective_chat.id,
+        #           sticker=random.choice(stickers)
+        #       )
+        #    except Exception as e:
+        #        logger.error(f"Error sending sticker: {e}")
 
             # Schedule next game in 60 seconds
             await self.schedule_next_game(update, context)

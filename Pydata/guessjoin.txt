@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "username": "chicago311",
+        "full_name": "Chi | BrgyTamago | Freelance",
+        "score": 10,
+        "join_date": "2025-01-29 11:11:50"
+    }
+]
